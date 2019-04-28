@@ -63,5 +63,3 @@ function execute() {
        },
        function(err) { console.error("Execute error", err); });
 }
-
-<button onclick="execute()">execute</button>
