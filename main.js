@@ -60,11 +60,12 @@ signoutButton.addEventListener("click", function(){
   gapi.auth2.getAuthInstance().signOut();
 });
 
+// Make sure the client is loaded and sign-in is complete before calling this method.
 function execute() {
- return gapi.client.tagmanager.accounts.containers.list({})
-  .then(function(response) {
-     // Handle the results here (response.result has the parsed body).
-      console.log("Response", response);
-       },
-       function(err) { console.error("Execute error", err); });
-}
+  return gapi.client.tagmanager.accounts.get({})
+      .then(function(response) {
+            // Handle the results here (response.result has the parsed body).
+            console.log("Response", response);
+            },
+            function(err) { console.error("Execute error", err); });
+ }
