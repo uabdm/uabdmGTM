@@ -5,8 +5,6 @@ const channelForm = document.getElementById('channel-form');
 const channelInput = document.getElementById('channel-input');
 const videoContainer = document.getElementById('video-container');
 
-const defaultChannel = 'techguyweb';
-
 //Load auth2 library
 function handleClientLoad() {
   gapi.load('client:auth2', initClient);
@@ -16,9 +14,9 @@ function initClient() {
   // Initialize the client with API key and People API, and initialize OAuth with an
   // OAuth 2.0 client ID and scopes (space delimited string) to request access.
   gapi.client.init({
-      apiKey: 'AIzaSyDuDvkZ-vE52s-6QEc3HjWCg_KQULlkSWM',
+      apiKey: '',
       discoveryDocs: ["https://content.googleapis.com/discovery/v1/apis/tagmanager/v2/rest"],
-      clientId: '659636898517-r6pov4qopv2pm7vshf0tpuf4ooeqnq7j.apps.googleusercontent.com',
+      clientId: '',
       scope: 'https://www.googleapis.com/auth/tagmanager.edit.containers'
   }).then(function () {
     // Listen for sign-in state changes.
@@ -59,7 +57,7 @@ signoutButton.addEventListener("click", function(){
 // Make sure the client is loaded and sign-in is complete before calling this method.
 function execute() {
   return gapi.client.tagmanager.accounts.get({
-    "path": "/accounts/4701785906"
+    "path": "/accounts/5555555"
   })
       .then(function(response) {
             // Handle the results here (response.result has the parsed body).
