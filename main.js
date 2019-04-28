@@ -17,7 +17,7 @@ function initClient() {
   // OAuth 2.0 client ID and scopes (space delimited string) to request access.
   gapi.client.init({
       apiKey: 'AIzaSyDuDvkZ-vE52s-6QEc3HjWCg_KQULlkSWM',
-      // discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest"],
+      discoveryDocs: ["https://content.googleapis.com/discovery/v1/apis/tagmanager/v2/rest"],
       clientId: '659636898517-r6pov4qopv2pm7vshf0tpuf4ooeqnq7j.apps.googleusercontent.com',
       scope: 'https://www.googleapis.com/auth/tagmanager.edit.containers'
   }).then(function () {
@@ -29,12 +29,6 @@ function initClient() {
   });
 }
 
-function loadClient() {
-  return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/tagmanager/v2/rest")
-      .then(function() { console.log("GAPI client loaded for API"); },
-             function(err) { console.error("Error loading GAPI client for API", err); });
-}
-
 // Update UI sign in state changes
 function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
@@ -42,11 +36,13 @@ function updateSigninStatus(isSignedIn) {
       signoutButton.style.display = 'block';
       content.style.display = 'block';
       videoContainer.style.display = 'block';
+      console.log("signed in");
     } else {
       authorizeButton.style.display = 'block';
       signoutButton.style.display = 'none';
       content.style.display = 'none';
       videoContainer.style.display = 'none';
+      console.log("signed out");
     }
 }
 
