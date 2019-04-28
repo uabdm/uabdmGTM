@@ -55,7 +55,11 @@ signoutButton.addEventListener("click", function(){
   gapi.auth2.getAuthInstance().signOut();
 });
 
-// Get channel from api
-function getChannel(channel) {
-  console.log(channel);
+function execute() {
+ return gapi.client.tagmanager.accounts.containers.list({})
+  .then(function(response) {
+     // Handle the results here (response.result has the parsed body).
+      console.log("Response", response);
+       },
+       function(err) { console.error("Execute error", err); });
 }
