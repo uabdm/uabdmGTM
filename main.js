@@ -54,7 +54,31 @@ signoutButton.addEventListener("click", function(){
   gapi.auth2.getAuthInstance().signOut();
 });
 
-// Make sure the client is loaded and sign-in is complete before calling this method.
+// Create folders. Make sure the client is loaded and sign-in is complete before calling this method.
+function createFolders(getContainerID) {
+  containerID = getContainerID; 
+  console.log("Create Folders " + containerID);
+  return gapi.client.tagmanager.accounts.containers.workspaces.folders.create({
+    "parent": "accounts/4701785906/containers/11777308/workspaces/7",
+    "resource": {
+      "path": "accounts/4701785906/containers/11714274/workspaces/16/folders/15",
+      "accountId": "4701785906",
+      "containerId": "11714274",
+      "workspaceId": "16",
+      "folderId": "15",
+      "name": "Cookie Consent",
+      "fingerprint": "1555780534108",
+      "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/4701785906/containers/11714274/workspaces/16/folders?apiLink=folder"
+    }
+  })
+      .then(function(response) {
+              // Handle the results here (response.result has the parsed body).
+              console.log("Response", response);
+            },
+            function(err) { console.error("Execute error", err); });
+}
+
+//  Get Container IDs. Make sure the client is loaded and sign-in is complete before calling this method. 
 function execute() {
   return gapi.client.tagmanager.accounts.containers.list({
     "parent": "/accounts/4701785906"
@@ -63,10 +87,12 @@ function execute() {
             // Handle the results here (response.result has the parsed body).
             console.log("Response", response);
             const getContainers = response.result.container;
-            console.log(getContainers);
+            console.log("Array of containers " + getContainers);
             for (let i=0; i < getContainers.length; i +=1) {
-               console.log(getContainers[i].containerId);
+               let getContainerID = getContainers[i].containerId;
+               console.log("Original response " + getContainerID);
+               createFolders(getContainerID);
             }
             },
             function(err) { console.error("Execute error", err); });
- }
+} 
