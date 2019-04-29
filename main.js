@@ -57,7 +57,7 @@ signoutButton.addEventListener("click", function(){
 // Make sure the client is loaded and sign-in is complete before calling this method.
 function execute() {
   return gapi.client.tagmanager.accounts.containers.list({
-    "path": "/accounts/4701785906"
+    "parent": "/accounts/4701785906"
   })
       .then(function(response) {
             // Handle the results here (response.result has the parsed body).
