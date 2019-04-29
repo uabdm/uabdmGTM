@@ -59,7 +59,7 @@ function createFolders(getContainerID) {
   containerID = getContainerID;
   console.log("Create Folders " + containerID);
   return gapi.client.tagmanager.accounts.containers.workspaces.folders.create({
-    "parent": "accounts/4701785906/containers/11777308/workspaces/7",
+    "parent": "accounts/4701785906/containers/" + containerID + "/workspaces/7",
     "resource": {
       "path": "accounts/4701785906/containers/11714274/workspaces/16/folders/15",
       "accountId": "4701785906",
