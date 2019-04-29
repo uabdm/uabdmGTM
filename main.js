@@ -57,7 +57,7 @@ signoutButton.addEventListener("click", function(){
 // Get Workspace. Make sure the client is loaded and sign-in is complete before calling this method.
 function getWorkspaceID(containerID) {
   return gapi.client.tagmanager.accounts.containers.workspaces.list({
-        "parent": "accounts/4701785906/containers/" + containerID;
+        "parent": "accounts/4701785906/containers/" + containerID
       })
           .then(function(response) {
                   // Handle the results here (response.result has the parsed body).
