@@ -108,6 +108,7 @@ function execute() {
             for (let i=0; i < getContainers.length; i +=1) {
                let getContainerID = getContainers[i].containerId;
                let workspaceID = getWorkspaceID(getContainerID);
+               console.log("Workspace ID in main function" + workspaceID);
                console.log("Container ID in main function " + getContainerID);;
                createFolders(getContainerID, workspaceID);
             }
