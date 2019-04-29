@@ -70,7 +70,7 @@ function getWorkspaceID(containerID) {
 }
 
 // Create folders. Make sure the client is loaded and sign-in is complete before calling this method.
-function createFolders(getContainerID) {
+function createFolders(getContainerID, workspaceID) {
   let containerID = getContainerID;
   console.log("Create Folders " + containerID);
   console.log("Wokspace ID output in folders function " + workspaceID);
