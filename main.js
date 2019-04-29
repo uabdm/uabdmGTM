@@ -54,9 +54,9 @@ signoutButton.addEventListener("click", function(){
   gapi.auth2.getAuthInstance().signOut();
 });
 
-// Create folders. Make sure the client is loaded and sign-in is complete before calling this method.
+/* Create folders. Make sure the client is loaded and sign-in is complete before calling this method.
 function createFolders(getContainerID) {
-  containerID = getContainerID; 
+  containerID = getContainerID;
   console.log("Create Folders " + containerID);
   return gapi.client.tagmanager.accounts.containers.workspaces.folders.create({
     "parent": "accounts/4701785906/containers/11777308/workspaces/7",
@@ -77,8 +77,9 @@ function createFolders(getContainerID) {
             },
             function(err) { console.error("Execute error", err); });
 }
+*/
 
-//  Get Container IDs. Make sure the client is loaded and sign-in is complete before calling this method. 
+//  Get Container IDs. Make sure the client is loaded and sign-in is complete before calling this method.
 function execute() {
   return gapi.client.tagmanager.accounts.containers.list({
     "parent": "/accounts/4701785906"
@@ -87,12 +88,12 @@ function execute() {
             // Handle the results here (response.result has the parsed body).
             console.log("Response", response);
             const getContainers = response.result.container;
-            console.log("Array of containers " + getContainers);
+            console.log(getContainers);
             for (let i=0; i < getContainers.length; i +=1) {
                let getContainerID = getContainers[i].containerId;
-               console.log("Original response " + getContainerID);
-               createFolders(getContainerID);
+               console.log(getContainerID);
+               //createFolders(getContainerID);
             }
             },
             function(err) { console.error("Execute error", err); });
-} 
+}
