@@ -54,10 +54,24 @@ signoutButton.addEventListener("click", function(){
   gapi.auth2.getAuthInstance().signOut();
 });
 
-//Create folders. Make sure the client is loaded and sign-in is complete before calling this method.
+// Get Workspace. Make sure the client is loaded and sign-in is complete before calling this method.
+function getWorkspaceID(containerID) {
+  return gapi.client.tagmanager.accounts.containers.workspaces.list({
+        "parent": "accounts/4701785906/containers/" + containerID;
+      })
+          .then(function(response) {
+                  // Handle the results here (response.result has the parsed body).
+                  console.log("Response", response);
+                  console.log("Wokspace ID" + response.result.workspace.workspaceId);
+                },
+                function(err) { console.error("Execute error", err); });
+}
+
+// Create folders. Make sure the client is loaded and sign-in is complete before calling this method.
 function createFolders(getContainerID) {
   containerID = getContainerID;
   console.log("Create Folders " + containerID);
+  getWorkspaceID(containerID);
   return gapi.client.tagmanager.accounts.containers.workspaces.folders.create({
     "parent": "accounts/4701785906/containers/" + containerID + "/workspaces/7",
     "resource": {
@@ -77,6 +91,7 @@ function createFolders(getContainerID) {
             },
             function(err) { console.error("Execute error", err); });
 }
+
 
 //  Get Container IDs. Make sure the client is loaded and sign-in is complete before calling this method.
 function execute() {
