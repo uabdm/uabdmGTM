@@ -61,8 +61,8 @@ function getWorkspaceID(containerID) {
       })
           .then(function(response) {
                   // Handle the results here (response.result has the parsed body).
-                  console.log("Response", response);
-                  console.log("Wokspace ID" + response.result.workspace.workspaceId);
+                  console.log("Get Workspace Response", response);
+                  console.log("Wokspace ID" + response.result.workspace[0].workspaceId);
                 },
                 function(err) { console.error("Execute error", err); });
 }
