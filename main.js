@@ -54,7 +54,7 @@ signoutButton.addEventListener("click", function(){
   gapi.auth2.getAuthInstance().signOut();
 });
 
-/* Create folders. Make sure the client is loaded and sign-in is complete before calling this method.
+//Create folders. Make sure the client is loaded and sign-in is complete before calling this method.
 function createFolders(getContainerID) {
   containerID = getContainerID;
   console.log("Create Folders " + containerID);
@@ -77,7 +77,6 @@ function createFolders(getContainerID) {
             },
             function(err) { console.error("Execute error", err); });
 }
-*/
 
 //  Get Container IDs. Make sure the client is loaded and sign-in is complete before calling this method.
 function execute() {
@@ -92,7 +91,7 @@ function execute() {
             for (let i=0; i < getContainers.length; i +=1) {
                let getContainerID = getContainers[i].containerId;
                console.log(getContainerID);
-               //createFolders(getContainerID);
+               createFolders(getContainerID);
             }
             },
             function(err) { console.error("Execute error", err); });
