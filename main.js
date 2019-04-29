@@ -72,7 +72,6 @@ function getWorkspaceID(containerID) {
 // Create folders. Make sure the client is loaded and sign-in is complete before calling this method.
 function createFolders(getContainerID, workspaceID) {
   let containerID = getContainerID;
-  let workspaceID = workspaceID;
   console.log("Create Folders " + containerID);
   console.log("Wokspace ID output in folders function " + workspaceID);
   return gapi.client.tagmanager.accounts.containers.workspaces.folders.create({
