@@ -62,8 +62,11 @@ function execute() {
       .then(function(response) {
             // Handle the results here (response.result has the parsed body).
             console.log("Response", response);
-            const getContainers = response.result.container[0].containerId;
+            const getContainers = response.result.container;
             console.log(getContainers);
+            for (let i=0; i < getContainers.length; i +=1) {
+               console.log(getContainers[i].containerId);
+            }
             },
             function(err) { console.error("Execute error", err); });
  }
