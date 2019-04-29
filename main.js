@@ -61,7 +61,7 @@ function getWorkspaceID(containerID) {
       })
           .then(function(response) {
                   // Handle the results here (response.result has the parsed body).
-                  let workspaceIDs = response.result.workspace[0].workspaceId;
+                  var workspaceIDs = response.result.workspace[0].workspaceId;
                   console.log("Get Workspace Response ", response);
                   console.log("Workspace ID " + workspaceIDs);
                   return workspaceIDs;
