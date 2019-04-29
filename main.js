@@ -73,6 +73,7 @@ function getWorkspaceID(containerID) {
 function createFolders(getContainerID, workspaceID) {
   let containerID = getContainerID;
   console.log("Create Folders " + containerID);
+  let workspaceID = getWorkspaceID(containerID);
   console.log("Wokspace ID output in folders function " + workspaceID);
   return gapi.client.tagmanager.accounts.containers.workspaces.folders.create({
     "parent": "accounts/4701785906/containers/" + containerID + "/workspaces/" + workspaceID,
@@ -107,10 +108,8 @@ function execute() {
             console.log(getContainers);
             for (let i=0; i < getContainers.length; i +=1) {
                let getContainerID = getContainers[i].containerId;
-               console.log("Container ID in main function " + getContainerID);
-               let workspaceID = getWorkspaceID(getContainerID);
-               console.log("Workspace ID main function" + workspaceID);
-               createFolders(getContainerID, workspaceID);
+               console.log("Container ID in main function " + getContainerID);;
+               createFolders(getContainerID);
             }
             },
             function(err) { console.error("Execute error", err); });
