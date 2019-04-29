@@ -64,7 +64,7 @@ function getWorkspaceID(containerID) {
                   var workspaceIDs = response.result.workspace[0].workspaceId;
                   console.log("Get Workspace Response ", response);
                   console.log("Workspace ID " + workspaceIDs);
-                  return workspaceIDs;
+                  createFolders(containerID, workspaceIDs);
                 },
                 function(err) { console.error("Execute error", err); });
 }
@@ -110,7 +110,7 @@ function execute() {
                let workspaceID = getWorkspaceID(getContainerID);
                console.log("Workspace ID in main function" + workspaceID);
                console.log("Container ID in main function " + getContainerID);;
-               createFolders(getContainerID, workspaceID);
+               //createFolders(getContainerID, workspaceID);
             }
             },
             function(err) { console.error("Execute error", err); });
