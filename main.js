@@ -96,6 +96,10 @@ function getTriggers() {
               // Handle the results here (response.result has the parsed body).
               let triggers = response.result.trigger;
               console.log("Triggers ", triggers);
+              for (let i = 0; triggers.length; i+=1) {
+                let triggerID = triggers[i].triggerId;
+                console.log(triggerID);
+              }
             },
             function(err) { console.error("Execute error", err); });
 }
