@@ -99,6 +99,7 @@ function getTriggers() {
             function(err) { console.error("Execute error", err); });
 }
 
+// Get a list of every variable from the Cookie Consent Container
 function getVariables() {
   return gapi.client.tagmanager.accounts.containers.workspaces.variables.list({
     "parent": "accounts/4701785906/containers/11828399/workspaces/10"
@@ -150,6 +151,7 @@ function createTriggers() {
             function(err) { console.error("Execute error", err); });
 }
 
+// Create each variable individually from the list retrieved from the getTriggers function
 function createVariables() {
   return gapi.client.tagmanager.accounts.containers.workspaces.variables.create({
     "parent": "accounts/4701785906/containers/11714726/workspaces/8",
@@ -175,7 +177,7 @@ function createVariables() {
   })
       .then(function(response) {
               // Handle the results here (response.result has the parsed body).
-              console.log("Response", response);
+              console.log(" Variable Response", response);
             },
             function(err) { console.error("Execute error", err); });
 }
