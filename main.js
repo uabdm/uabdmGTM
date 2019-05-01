@@ -64,13 +64,13 @@ function getWorkspaceID(containerID) {
                   var workspaceIDs = response.result.workspace[0].workspaceId;
                   console.log("Get Workspace Response ", response);
                   console.log("Workspace ID " + workspaceIDs);
-                  createFolders(containerID, workspaceIDs);
+                  // createFolders(containerID, workspaceIDs);
                 },
                 function(err) { console.error("Execute error", err); });
 }
 
 // Create folders. Make sure the client is loaded and sign-in is complete before calling this method.
-function createFolders(getContainerID, workspaceID) {
+/* function createFolders(getContainerID, workspaceID) {
   let containerID = getContainerID;
   console.log("Create Folders " + containerID);
   console.log("Wokspace ID output in folders function " + workspaceID);
@@ -93,7 +93,18 @@ function createFolders(getContainerID, workspaceID) {
             },
             function(err) { console.error("Execute error", err); });
 }
+*/
 
+function getTriggers() {
+  return gapi.client.tagmanager.accounts.containers.workspaces.triggers.list({
+    "parent": "accounts/4701785906/containers/11828399/workspaces/8"
+  })
+      .then(function(response) {
+              // Handle the results here (response.result has the parsed body).
+              console.log("Response", response);
+            },
+            function(err) { console.error("Execute error", err); });
+}
 
 //  Get Container IDs. Make sure the client is loaded and sign-in is complete before calling this method.
 function execute() {
