@@ -28,12 +28,10 @@ function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
       authorizeButton.style.display = 'none';
       signoutButton.style.display = 'block';
-      videoContainer.style.display = 'block';
       console.log("signed in");
     } else {
       authorizeButton.style.display = 'block';
       signoutButton.style.display = 'none';
-      videoContainer.style.display = 'none';
       console.log("signed out");
     }
 }
