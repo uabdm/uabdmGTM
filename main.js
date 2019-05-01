@@ -94,7 +94,8 @@ function getTriggers() {
   })
       .then(function(response) {
               // Handle the results here (response.result has the parsed body).
-              console.log("Triggers ", response);
+              let triggers = response.result.trigger;
+              console.log("Triggers ", triggers);
             },
             function(err) { console.error("Execute error", err); });
 }
