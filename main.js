@@ -150,6 +150,36 @@ function createTriggers() {
             function(err) { console.error("Execute error", err); });
 }
 
+function createVariables() {
+  return gapi.client.tagmanager.accounts.containers.workspaces.variables.create({
+    "parent": "accounts/4701785906/containers/11714726/workspaces/8",
+    "resource": {
+      "path": "accounts/4701785906/containers/11828399/workspaces/10/variables/1",
+      "accountId": "4701785906",
+      "containerId": "11828399",
+      "workspaceId": "10",
+      "variableId": "1",
+      "name": "Cookiebot.consent.marketing",
+      "type": "jsm",
+      "parameter": [
+        {
+          "type": "template",
+          "key": "javascript",
+          "value": "function()\n{\n  return Cookiebot.consent.marketing.toString()\n}"
+        }
+      ],
+      "fingerprint": "1556737624368",
+      "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/4701785906/containers/11828399/workspaces/10/variables/1?apiLink=variable",
+      "formatValue": {}
+    }
+  })
+      .then(function(response) {
+              // Handle the results here (response.result has the parsed body).
+              console.log("Response", response);
+            },
+            function(err) { console.error("Execute error", err); });
+}
+
 //  Get Container IDs. Make sure the client is loaded and sign-in is complete before calling this method.
 function execute() {
   return gapi.client.tagmanager.accounts.containers.list({
