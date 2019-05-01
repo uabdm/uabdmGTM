@@ -96,9 +96,22 @@ function getTriggers() {
               // Handle the results here (response.result has the parsed body).
               let triggers = response.result.trigger;
               console.log("Triggers ", triggers);
-              for (let i = 0; triggers.length; i+=1) {
+              for (let i = 0; i < triggers.length; i+=1) {
+                let path = triggers[i].path;
+                let containerID = triggers[i].containerId;
+                let workspaceID = triggers[i].workspaceId;
                 let triggerID = triggers[i].triggerId;
+                let triggerName = triggers[i].name;
+                let fingerPrint = triggers[i].fingerprint;
+                let tagManagerUrl = triggers[i].tagManagerUrl;
+                console.log("Trigger Number " + i);
+                console.log(path);
+                console.log(containerID);
+                console.log(workspaceID;
                 console.log(triggerID);
+                console.log(triggerName);
+                console.log(fingerPrint);
+                console.log(tagManagerUrl);
               }
             },
             function(err) { console.error("Execute error", err); });
