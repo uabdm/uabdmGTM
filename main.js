@@ -90,7 +90,7 @@ function getWorkspaceID(containerID) {
 // Get a list of every trigger from the Cookie Consent Container
 function getTriggers() {
   return gapi.client.tagmanager.accounts.containers.workspaces.triggers.list({
-    "parent": "accounts/4701785906/containers/11828399/workspaces/8"
+    "parent": "accounts/4701785906/containers/11828399/workspaces/10"
   })
       .then(function(response) {
               // Handle the results here (response.result has the parsed body).
@@ -101,7 +101,7 @@ function getTriggers() {
 
 function getVariables() {
   return gapi.client.tagmanager.accounts.containers.workspaces.variables.list({
-    "parent": "accounts/4701785906/containers/11828399/workspaces/8"
+    "parent": "accounts/4701785906/containers/11828399/workspaces/10"
   })
       .then(function(response) {
               // Handle the results here (response.result has the parsed body).
