@@ -1,5 +1,9 @@
 const authorizeButton = document.getElementById('authorize-button');
 const signoutButton = document.getElementById('signout-button');
+const content = document.getElementById('content');
+const channelForm = document.getElementById('channel-form');
+const channelInput = document.getElementById('channel-input');
+const videoContainer = document.getElementById('video-container');
 
 //Load auth2 library
 function handleClientLoad() {
@@ -28,10 +32,14 @@ function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
       authorizeButton.style.display = 'none';
       signoutButton.style.display = 'block';
+      content.style.display = 'block';
+      videoContainer.style.display = 'block';
       console.log("signed in");
     } else {
       authorizeButton.style.display = 'block';
       signoutButton.style.display = 'none';
+      content.style.display = 'none';
+      videoContainer.style.display = 'none';
       console.log("signed out");
     }
 }
@@ -95,6 +103,17 @@ function getTriggers() {
       .then(function(response) {
               // Handle the results here (response.result has the parsed body).
               console.log("Get Triggers Response", response);
+            },
+            function(err) { console.error("Execute error", err); });
+}
+
+function getVariables() {
+  return gapi.client.tagmanager.accounts.containers.workspaces.variables.list({
+    "parent": "accounts/4701785906/containers/11828399/workspaces/8"
+  })
+      .then(function(response) {
+              // Handle the results here (response.result has the parsed body).
+              console.log("Variables ", response);
             },
             function(err) { console.error("Execute error", err); });
 }
