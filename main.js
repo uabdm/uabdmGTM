@@ -107,7 +107,7 @@ function getTriggers() {
                 console.log("Trigger Number " + i);
                 console.log(path);
                 console.log(containerID);
-                console.log(workspaceID;
+                console.log(workspaceID);
                 console.log(triggerID);
                 console.log(triggerName);
                 console.log(fingerPrint);
