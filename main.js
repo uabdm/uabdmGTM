@@ -94,7 +94,7 @@ function getTriggers() {
   })
       .then(function(response) {
               // Handle the results here (response.result has the parsed body).
-              console.log("Get Triggers Response", response);
+              console.log("Triggers ", response);
             },
             function(err) { console.error("Execute error", err); });
 }
@@ -177,7 +177,7 @@ function createVariables() {
   })
       .then(function(response) {
               // Handle the results here (response.result has the parsed body).
-              console.log(" Variable Response", response);
+              console.log("Create variables ", response);
             },
             function(err) { console.error("Execute error", err); });
 }
