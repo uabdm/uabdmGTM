@@ -53,10 +53,12 @@ function getWorkspaceID(containerID) {
       })
           .then(function(response) {
                   // Handle the results here (response.result has the parsed body).
+                  let containerIDs = containerID;
                   let workspaceIDs = response.result.workspace[0].workspaceId;
                   console.log("Get Workspace Response ", response);
                   console.log("Workspace ID " + workspaceIDs);
-                  // createFolders(containerID, workspaceIDs);
+                  // createFolders(containerIDs, workspaceIDs);
+                  getTriggers(containerIDs, workspaceIDs);
                 },
                 function(err) { console.error("Execute error", err); });
 }
@@ -88,12 +90,15 @@ function getWorkspaceID(containerID) {
 */
 
 // Get a list of every trigger from the Cookie Consent Container
-function getTriggers() {
+function getTriggers(containerIDs, workspaceIDs) {
   return gapi.client.tagmanager.accounts.containers.workspaces.triggers.list({
     "parent": "accounts/4701785906/containers/11828399/workspaces/10"
   })
       .then(function(response) {
               // Handle the results here (response.result has the parsed body).
+              let containerIDs = containerIDs;
+              let workspaceIDs = workspaceIDs;
+              console.log("Container IDs and Workspace IDs are " + containerIDs + "" + workspaceIDs);
               let triggers = response.result.trigger;
               console.log("Triggers ", triggers);
               for (let i = 0; i < triggers.length; i+=1) {
@@ -112,6 +117,7 @@ function getTriggers() {
                 console.log(triggerName);
                 console.log(fingerPrint);
                 console.log(tagManagerUrl);
+                //createTriggers(path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl);
               }
             },
             function(err) { console.error("Execute error", err); });
@@ -130,7 +136,7 @@ function getVariables() {
 }
 
 // Create each trigger individually from the list retrieved from the getTriggers function
-function createTriggers() {
+function createTriggers(path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl) {
   return gapi.client.tagmanager.accounts.containers.workspaces.triggers.create({
     "parent": "accounts/4701785906/containers/11714726/workspaces/8",
     "resource": {
