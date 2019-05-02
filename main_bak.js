@@ -137,7 +137,7 @@ function createTriggers() {
       "path": "accounts/4701785906/containers/11828399/workspaces/10/triggers/5",
       "accountId": "4701785906",
       "containerId": "11828399",
-      "workspaceId": "8",
+      "workspaceId": "10",
       "triggerId": "5",
       "name": "Cookie Consent Marketing",
       "type": "customEvent",
