@@ -118,7 +118,7 @@ function getTriggers(containerIDs, workspaceIDs) {
                 console.log(fingerPrint);
                 console.log(tagManagerUrl);
                 console.log(value);
-                //createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
+                createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
               }
             },
             function(err) { console.error("Execute error", err); });
