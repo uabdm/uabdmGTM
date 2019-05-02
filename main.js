@@ -137,7 +137,7 @@ function createTriggers(containerIDs, workspaceIDs, path, containerID, workspace
       "containerId": "11828399",
       "workspaceId": "8",
       "triggerId": triggerID,
-      "name": triggerName",
+      "name": triggerName,
       "type": "customEvent",
       "customEventFilter": [
         {
