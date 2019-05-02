@@ -101,15 +101,15 @@ function getTriggers(containerIDs, workspaceIDs) {
               let triggers = response.result.trigger;
               console.log("Triggers ", triggers);
               //for (let i = 0; i < triggers.length; i+=1) {
-                let path = triggers[0].path;
-                let containerID = triggers[0].containerId;
-                let workspaceID = triggers[0].workspaceId;
-                let triggerID = triggers[0].triggerId;
-                let triggerName = triggers[0].name;
-                let fingerPrint = triggers[0].fingerprint;
-                let tagManagerUrl = triggers[0].tagManagerUrl;
-                let value = triggers[0].customEventFilter[0].parameter[1].value;
-                // console.log("Trigger Number " + i);
+                let path = triggers[1].path;
+                let containerID = triggers[1].containerId;
+                let workspaceID = triggers[1].workspaceId;
+                let triggerID = triggers[1].triggerId;
+                let triggerName = triggers[1].name;
+                let fingerPrint = triggers[1].fingerprint;
+                let tagManagerUrl = triggers[1].tagManagerUrl;
+                let value = triggers[1].customEventFilter[0].parameter[1].value;
+                //console.log("Trigger Number " + i);
                 console.log(path);
                 console.log(containerID);
                 console.log(workspaceID);
