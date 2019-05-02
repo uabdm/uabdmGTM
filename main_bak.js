@@ -132,7 +132,7 @@ function getVariables() {
 // Create each trigger individually from the list retrieved from the getTriggers function
 function createTriggers() {
   return gapi.client.tagmanager.accounts.containers.workspaces.triggers.create({
-    "parent": "accounts/4701785906/containers/11714726/workspaces/8",
+    "parent": "accounts/4701785906/containers/11714726/workspaces/21",
     "resource": {
       "path": "accounts/4701785906/containers/11828399/workspaces/10/triggers/5",
       "accountId": "4701785906",
