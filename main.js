@@ -109,8 +109,7 @@ function getTriggers(containerIDs, workspaceIDs) {
                 let fingerPrint = triggers[i].fingerprint;
                 let tagManagerUrl = triggers[i].tagManagerUrl;
                 let value = triggers[i].customEventFilter[0].parameter[1].value;
-                console.log(value);
-                //createTriggers(path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl);
+                createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
               }
             },
             function(err) { console.error("Execute error", err); });
@@ -129,16 +128,16 @@ function getVariables() {
 }
 
 // Create each trigger individually from the list retrieved from the getTriggers function
-function createTriggers(path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl) {
+function createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value) {
   return gapi.client.tagmanager.accounts.containers.workspaces.triggers.create({
-    "parent": "accounts/4701785906/containers/11714726/workspaces/8",
+    "parent": `accounts/4701785906/containers/${containerIDs}/workspaces/${workspaceIDs}`,
     "resource": {
-      "path": "accounts/4701785906/containers/11828399/workspaces/8/triggers/5",
+      "path": path,
       "accountId": "4701785906",
       "containerId": "11828399",
       "workspaceId": "8",
-      "triggerId": "5",
-      "name": "Cookie Consent Marketing",
+      "triggerId": triggerID,
+      "name": triggerName",
       "type": "customEvent",
       "customEventFilter": [
         {
@@ -152,13 +151,13 @@ function createTriggers(path, containerID, workspaceID, triggerID, triggerName, 
             {
               "type": "template",
               "key": "arg1",
-              "value": "cookieconsent_marketing"
+              "value": value
             }
           ]
         }
       ],
-      "fingerprint": "1556734655544",
-      "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/4701785906/containers/11828399/workspaces/8/triggers/5?apiLink=trigger"
+      "fingerprint": fingerPrint,
+      "tagManagerUrl": tagManagerUrl
     }
   })
       .then(function(response) {
