@@ -132,35 +132,35 @@ function getVariables() {
 // Create each trigger individually from the list retrieved from the getTriggers function
 function createTriggers() {
   return gapi.client.tagmanager.accounts.containers.workspaces.triggers.create({
-    "parent": "accounts/4701785906/containers/11714726/workspaces/21",
-    "resource": {
-      "path": "accounts/4701785906/containers/11828399/workspaces/10/triggers/5",
-      "accountId": "4701785906",
-      "containerId": "11828399",
-      "workspaceId": "10",
-      "triggerId": "5",
-      "name": "Cookie Consent Marketing",
-      "type": "customEvent",
-      "customEventFilter": [
-        {
-          "type": "equals",
-          "parameter": [
-            {
-              "type": "template",
-              "key": "arg0",
-              "value": "{{_event}}"
-            },
-            {
-              "type": "template",
-              "key": "arg1",
-              "value": "cookieconsent_marketing"
-            }
-          ]
-        }
-      ],
-      "fingerprint": "1556734655544",
-      "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/4701785906/containers/11828399/workspaces/8/triggers/5?apiLink=trigger"
-    }
+    "parent": "accounts/4701785906/containers/11714274/workspaces/21",
+      "resource": {
+        "path": "accounts/4701785906/containers/11828399/workspaces/10/triggers/5",
+        "accountId": "4701785906",
+        "containerId": "11828399",
+        "workspaceId": "10",
+        "triggerId": "5",
+        "name": "Cookie Consent Marketing",
+        "type": "customEvent",
+        "customEventFilter": [
+          {
+            "type": "equals",
+            "parameter": [
+              {
+                "type": "template",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "template",
+                "key": "arg1",
+                "value": "cookieconsent_marketing"
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1556737624366",
+        "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/4701785906/containers/11828399/workspaces/10/triggers/5?apiLink=trigger"
+      }
   })
       .then(function(response) {
               // Handle the results here (response.result has the parsed body).
