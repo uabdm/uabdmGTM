@@ -118,7 +118,7 @@ function getTriggers(containerIDs, workspaceIDs) {
                 console.log(fingerPrint);
                 console.log(tagManagerUrl);
                 console.log(value);
-                createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
+                //createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
               }
             },
             function(err) { console.error("Execute error", err); });
@@ -220,7 +220,7 @@ function execute() {
             for (let i=0; i < getContainers.length; i +=1) {
                let getContainerID = getContainers[i].containerId;
                let workspaceID = getWorkspaceID(getContainerID);
-               console.log("Workspace ID in main function" + workspaceID);
+               //console.log("Workspace ID in main function" + workspaceID);
                console.log("Container ID in main function " + getContainerID);;
                //createFolders(getContainerID, workspaceID);
             }
