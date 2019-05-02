@@ -108,6 +108,8 @@ function getTriggers(containerIDs, workspaceIDs) {
                 let triggerName = triggers[i].name;
                 let fingerPrint = triggers[i].fingerprint;
                 let tagManagerUrl = triggers[i].tagManagerUrl;
+                let value = triggers[i].customEventFilter[0].parameter[1].value;
+                console.log(value);
                 //createTriggers(path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl);
               }
             },
