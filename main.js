@@ -96,9 +96,9 @@ function getTriggers(containerIDs, workspaceIDs) {
   })
       .then(function(response) {
               // Handle the results here (response.result has the parsed body).
-              console.log("Container IDs and Workspace IDs passed through are " + containerIDs + "" + workspaceIDs);
+              console.log("Container IDs passed through to GetTriggers function is " + containerIDs;
+              console.log("Workspace IDs passed through to GetTriggers function is " + workspaceIDs;
               let triggers = response.result.trigger;
-              console.log("Triggers ", triggers);
               for (let i = 0; i < triggers.length; i+=1) {
                 let path = triggers[i].path;
                 let containerID = triggers[i].containerId;
@@ -107,14 +107,6 @@ function getTriggers(containerIDs, workspaceIDs) {
                 let triggerName = triggers[i].name;
                 let fingerPrint = triggers[i].fingerprint;
                 let tagManagerUrl = triggers[i].tagManagerUrl;
-                console.log("Trigger Number " + i);
-                console.log(path);
-                console.log(containerID);
-                console.log(workspaceID);
-                console.log(triggerID);
-                console.log(triggerName);
-                console.log(fingerPrint);
-                console.log(tagManagerUrl);
                 //createTriggers(path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl);
               }
             },
