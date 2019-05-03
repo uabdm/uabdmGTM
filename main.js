@@ -118,11 +118,7 @@ function getTriggers(containerIDs, workspaceIDs) {
                 console.log(fingerPrint);
                 console.log(tagManagerUrl);
                 console.log(value);
-                (function cycle() {
-                  createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
-                  setTimeout(cycle, 10000);
-                  console.log("Delay 10 seconds before showing message");
-                })();
+                //createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
               }
             },
             function(err) { console.error("Execute error", err); });
