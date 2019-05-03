@@ -102,6 +102,8 @@ function getTriggers(containerIDs, workspaceIDs) {
               console.log("Triggers ", triggers);
               for (let i = 0; i < triggers.length; i+=1) {
                 (function cycle() {
+                  setTimeout(cycle, 10000);
+                  console.log("Delay 10 seconds before showing message");
                   let path = triggers[i].path;
                   let containerID = triggers[i].containerId;
                   let workspaceID = triggers[i].workspaceId;
@@ -120,8 +122,6 @@ function getTriggers(containerIDs, workspaceIDs) {
                   console.log(tagManagerUrl);
                   console.log(value);
                   createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
-                  setTimeout(cycle, 10000);
-                  console.log("Delay 10 seconds before showing message");
                 })();
               }
             },
