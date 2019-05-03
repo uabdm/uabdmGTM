@@ -101,27 +101,27 @@ function getTriggers(containerIDs, workspaceIDs) {
               let triggers = response.result.trigger;
               console.log("Triggers ", triggers);
               for (let i = 0; i < triggers.length; i+=1) {
+                let path = triggers[i].path;
+                let containerID = triggers[i].containerId;
+                let workspaceID = triggers[i].workspaceId;
+                let triggerID = triggers[i].triggerId;
+                let triggerName = triggers[i].name;
+                let fingerPrint = triggers[i].fingerprint;
+                let tagManagerUrl = triggers[i].tagManagerUrl;
+                let value = triggers[i].customEventFilter[0].parameter[1].value;
+                console.log("Trigger Number " + i);
+                console.log(path);
+                console.log(containerID);
+                console.log(workspaceID);
+                console.log(triggerID);
+                console.log(triggerName);
+                console.log(fingerPrint);
+                console.log(tagManagerUrl);
+                console.log(value);
                 (function cycle() {
+                  createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
                   setTimeout(cycle, 10000);
                   console.log("Delay 10 seconds before showing message");
-                  let path = triggers[i].path;
-                  let containerID = triggers[i].containerId;
-                  let workspaceID = triggers[i].workspaceId;
-                  let triggerID = triggers[i].triggerId;
-                  let triggerName = triggers[i].name;
-                  let fingerPrint = triggers[i].fingerprint;
-                  let tagManagerUrl = triggers[i].tagManagerUrl;
-                  let value = triggers[i].customEventFilter[0].parameter[1].value;
-                  console.log("Trigger Number " + i);
-                  console.log(path);
-                  console.log(containerID);
-                  console.log(workspaceID);
-                  console.log(triggerID);
-                  console.log(triggerName);
-                  console.log(fingerPrint);
-                  console.log(tagManagerUrl);
-                  console.log(value);
-                  createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
                 })();
               }
             },
