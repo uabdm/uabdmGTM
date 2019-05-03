@@ -100,16 +100,16 @@ function getTriggers(containerIDs, workspaceIDs) {
               console.log("Workspace IDs passed through to GetTriggers function is " + workspaceIDs);
               let triggers = response.result.trigger;
               console.log("Triggers ", triggers);
-              //for (let i = 0; i < triggers.length; i+=1) {
-                let path = triggers[2].path;
-                let containerID = triggers[2].containerId;
-                let workspaceID = triggers[2].workspaceId;
-                let triggerID = triggers[2].triggerId;
-                let triggerName = triggers[2].name;
-                let fingerPrint = triggers[2].fingerprint;
-                let tagManagerUrl = triggers[2].tagManagerUrl;
-                let value = triggers[2].customEventFilter[0].parameter[1].value;
-                //console.log("Trigger Number " + i);
+              for (let i = 0; i < triggers.length; i+=1) {
+                let path = triggers[i].path;
+                let containerID = triggers[i].containerId;
+                let workspaceID = triggers[i].workspaceId;
+                let triggerID = triggers[i].triggerId;
+                let triggerName = triggers[i].name;
+                let fingerPrint = triggers[i].fingerprint;
+                let tagManagerUrl = triggers[i].tagManagerUrl;
+                let value = triggers[i].customEventFilter[0].parameter[1].value;
+                console.log("Trigger Number " + i);
                 console.log(path);
                 console.log(containerID);
                 console.log(workspaceID);
@@ -118,8 +118,8 @@ function getTriggers(containerIDs, workspaceIDs) {
                 console.log(fingerPrint);
                 console.log(tagManagerUrl);
                 console.log(value);
-                createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
-              //}
+                //createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
+              }
             },
             function(err) { console.error("Execute error", err); });
 }
