@@ -100,13 +100,14 @@ function getTriggers(containerIDs, workspaceIDs) {
               console.log("Triggers ", triggers);
               for (let i = 0; i < triggers.length; i+=1) {
                 var timer = setInterval(loopTriggers(i), 10000);
-              }
-              function loopTriggers(i) {
-                //for (let i = 0; i < triggers.length; i+=1) {
-                console.log(i);
+                console.log("Value of i in the loop is " + i);
                 if (i > triggers.length) {
                   clearInterval(timer);
                 }
+              }
+              function loopTriggers(i) {
+                //for (let i = 0; i < triggers.length; i+=1) {
+                console.log("Value of i passed to loopTriggers" + i);
                 let path = triggers[i].path;
                 let containerID = triggers[i].containerId;
                 let workspaceID = triggers[i].workspaceId;
