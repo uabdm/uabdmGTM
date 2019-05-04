@@ -98,10 +98,9 @@ function getTriggers(containerIDs, workspaceIDs) {
               // Handle the results here (response.result has the parsed body).
               let triggers = response.result.trigger;
               console.log("Triggers ", triggers);
-              (function cycle() {
-                setTimeout(cycle, 10000);
-                console.log("Delay 10 seconds before showing message");
-              for (let i = 0; i < triggers.length; i+=1) {
+              setTimeout(function(){ loopTriggers() }, 3000);
+              function loopTriggers() {
+                for (let i = 0; i < triggers.length; i+=1) {
                 let path = triggers[i].path;
                 let containerID = triggers[i].containerId;
                 let workspaceID = triggers[i].workspaceId;
@@ -123,7 +122,7 @@ function getTriggers(containerIDs, workspaceIDs) {
                 console.log("Workspace IDs passed through to GetTriggers function is " + workspaceIDs);
                 createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
               }
-            })();
+            }
             },
             function(err) { console.error("Execute error", err); });
 }
@@ -142,7 +141,6 @@ function getVariables() {
 
 // Create each trigger individually from the list retrieved from the getTriggers function
 function createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value) {
-  setTimeout(createTriggers, 3000);
   return gapi.client.tagmanager.accounts.containers.workspaces.triggers.create({
     "parent": `accounts/4701785906/containers/${containerIDs}/workspaces/${workspaceIDs}`,
     "resource": {
