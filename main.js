@@ -103,7 +103,7 @@ function getTriggers(containerIDs, workspaceIDs) {
                 loopTriggers(i) 
                 }, 3000);
               }
-              function loopTriggers() {
+              function loopTriggers(i) {
                 //for (let i = 0; i < triggers.length; i+=1) {
                 let path = triggers[i].path;
                 let containerID = triggers[i].containerId;
