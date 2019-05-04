@@ -98,7 +98,7 @@ function getTriggers(containerIDs, workspaceIDs) {
               // Handle the results here (response.result has the parsed body).
               let triggers = response.result.trigger;
               console.log("Triggers ", triggers);
-              for (let i = 0; i < triggers.length; i+=1) {
+              for (let i = 0; i < 1; i+=1) {
                 let path = triggers[i].path;
                 let containerID = triggers[i].containerId;
                 let workspaceID = triggers[i].workspaceId;
