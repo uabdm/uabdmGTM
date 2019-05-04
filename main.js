@@ -101,7 +101,7 @@ function getTriggers(containerIDs, workspaceIDs) {
               for (let i = 0; i < triggers.length; i+=1) {
                 setTimeout(function() { 
                 loopTriggers(i) 
-                }, 3000);
+              }, 10000);
               }
               function loopTriggers(i) {
                 //for (let i = 0; i < triggers.length; i+=1) {
@@ -125,7 +125,7 @@ function getTriggers(containerIDs, workspaceIDs) {
                 console.log(value);
                 console.log("Container IDs passed through to GetTriggers function is " + containerIDs);
                 console.log("Workspace IDs passed through to GetTriggers function is " + workspaceIDs);
-                //createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
+                createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
               //}
             }
             },
