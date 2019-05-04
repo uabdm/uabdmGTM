@@ -98,6 +98,9 @@ function getTriggers(containerIDs, workspaceIDs) {
               // Handle the results here (response.result has the parsed body).
               let triggers = response.result.trigger;
               console.log("Triggers ", triggers);
+              (function cycle() {
+                setTimeout(cycle, 10000);
+                console.log("Delay 10 seconds before showing message");
               for (let i = 0; i < triggers.length; i+=1) {
                 let path = triggers[i].path;
                 let containerID = triggers[i].containerId;
@@ -120,6 +123,7 @@ function getTriggers(containerIDs, workspaceIDs) {
                 console.log("Workspace IDs passed through to GetTriggers function is " + workspaceIDs);
                 createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
               }
+            })();
             },
             function(err) { console.error("Execute error", err); });
 }
