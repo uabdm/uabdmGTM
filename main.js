@@ -142,6 +142,7 @@ function getVariables() {
 
 // Create each trigger individually from the list retrieved from the getTriggers function
 function createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value) {
+  setTimeout(createTriggers, 3000);
   return gapi.client.tagmanager.accounts.containers.workspaces.triggers.create({
     "parent": `accounts/4701785906/containers/${containerIDs}/workspaces/${workspaceIDs}`,
     "resource": {
