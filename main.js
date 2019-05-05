@@ -126,7 +126,7 @@ function getTriggers(containerIDs, workspaceIDs) {
                   if (i < triggers.length) {
                     loopTriggers();
                   }
-                }, 10000)
+                }, 30000)
             }
               loopTriggers();
             },
