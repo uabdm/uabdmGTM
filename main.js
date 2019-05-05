@@ -121,12 +121,12 @@ function getTriggers(containerIDs, workspaceIDs) {
                   console.log(value);
                   console.log("Container IDs passed through to GetTriggers function is " + containerIDs);
                   console.log("Workspace IDs passed through to GetTriggers function is " + workspaceIDs);
-                  //createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
+                  createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
                   i++;
                   if (i < triggers.length) {
                     loopTriggers();
                   }
-                }, 10000)
+                }, 60000)
             }
               loopTriggers();
             },
