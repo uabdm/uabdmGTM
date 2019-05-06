@@ -110,6 +110,7 @@ function getTriggers(containerIDs, workspaceIDs) {
                   let fingerPrint = triggers[i].fingerprint;
                   let tagManagerUrl = triggers[i].tagManagerUrl;
                   let value = triggers[i].customEventFilter[0].parameter[1].value;
+                  /*
                   console.log("Trigger Number " + i);
                   console.log(path);
                   console.log(containerID);
@@ -119,6 +120,7 @@ function getTriggers(containerIDs, workspaceIDs) {
                   console.log(fingerPrint);
                   console.log(tagManagerUrl);
                   console.log(value);
+                  */
                   console.log("Container IDs passed through to GetTriggers function is " + containerIDs);
                   console.log("Workspace IDs passed through to GetTriggers function is " + workspaceIDs);
                   createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
@@ -147,6 +149,14 @@ function getVariables() {
 
 // Create each trigger individually from the list retrieved from the getTriggers function
 function createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value) {
+  console.log(path);
+  console.log(containerIDs);
+  console.log(workspaceIDs);
+  console.log(triggerID);
+  console.log(triggerName);
+  console.log(fingerPrint);
+  console.log(tagManagerUrl);
+  console.log(value);
   return gapi.client.tagmanager.accounts.containers.workspaces.triggers.create({
     "parent": `accounts/4701785906/containers/${containerIDs}/workspaces/${workspaceIDs}`,
     "resource": {
