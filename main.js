@@ -58,7 +58,8 @@ function getWorkspaceID(containerID) {
                   console.log("Get Workspace Response ", response);
                   console.log("Workspace ID " + workspaceIDs);
                   // createFolders(containerIDs, workspaceIDs);
-                  getTriggers(containerIDs, workspaceIDs);
+                  //getTriggers(containerIDs, workspaceIDs);
+                  getVariables(containerIDs, workspaceIDs);
                 },
                 function(err) { console.error("Execute error", err); });
 }
@@ -136,13 +137,49 @@ function getTriggers(containerIDs, workspaceIDs) {
 }
 
 // Get a list of every variable from the Cookie Consent Container
-function getVariables() {
+function getVariables(containerIDs, workspaceIDs) {
   return gapi.client.tagmanager.accounts.containers.workspaces.variables.list({
     "parent": "accounts/4701785906/containers/11828399/workspaces/10"
   })
       .then(function(response) {
               // Handle the results here (response.result has the parsed body).
-              console.log("Variables ", response);
+              console.log("Response ", response);
+              // Handle the results here (response.result has the parsed body).
+              let variables = response.result.variable;
+              let i = 0;
+              console.log("Variables ", variables);
+          /*    function loopVariables() {
+                setTimeout(function () {
+                  console.log("Value of i passed to loopVariables" + i);
+                  let path = variables[i].path;
+                  let containerID = variables[i].containerId;
+                  let workspaceID = variables[i].workspaceId;
+                  let variableID = variables[i].variableId;
+                  let variableName = variables[i].name;
+                  let fingerPrint = variables[i].fingerprint;
+                  let tagManagerUrl = variables[i].tagManagerUrl;
+                  let value = variables[i].customEventFilter[0].parameter[1].value;
+                  /*
+                  console.log("Trigger Number " + i);
+                  console.log(path);
+                  console.log(containerID);
+                  console.log(workspaceID);
+                  console.log(triggerID);
+                  console.log(triggerName);
+                  console.log(fingerPrint);
+                  console.log(tagManagerUrl);
+                  console.log(value);
+                  */
+                  console.log("Container IDs passed through to getVariables function is " + containerIDs);
+                  console.log("Workspace IDs passed through to getVariables function is " + workspaceIDs);
+          /*        createVariables(containerIDs, workspaceIDs, path, containerID, workspaceID, variableID, variableName, fingerPrint, tagManagerUrl, value);
+                  i++;
+                  if (i < variables.length) {
+                    loopVariables();
+                  }
+                }, 60000)
+            }
+              loopVariables(); */
             },
             function(err) { console.error("Execute error", err); });
 }
@@ -196,26 +233,34 @@ function createTriggers(containerIDs, workspaceIDs, path, containerID, workspace
 }
 
 // Create each variable individually from the list retrieved from the getTriggers function
-function createVariables() {
+function createVariables(containerIDs, workspaceIDs, path, containerID, workspaceID, variableID, variableName, fingerPrint, tagManagerUrl, value) {
+  console.log(path);
+  console.log(containerIDs);
+  console.log(workspaceIDs);
+  console.log(variableID);
+  console.log(variableName);
+  console.log(fingerPrint);
+  console.log(tagManagerUrl);
+  console.log(value);
   return gapi.client.tagmanager.accounts.containers.workspaces.variables.create({
-    "parent": "accounts/4701785906/containers/11714726/workspaces/8",
+    "parent": `accounts/4701785906/containers/${containerIDs}/workspaces/${workspaceIDs}`,
     "resource": {
-      "path": "accounts/4701785906/containers/11828399/workspaces/10/variables/1",
+      "path": path,
       "accountId": "4701785906",
       "containerId": "11828399",
       "workspaceId": "10",
-      "variableId": "1",
-      "name": "Cookiebot.consent.marketing",
+      "variableId": variableID,
+      "name": variableName,
       "type": "jsm",
       "parameter": [
         {
           "type": "template",
           "key": "javascript",
-          "value": "function()\n{\n  return Cookiebot.consent.marketing.toString()\n}"
+          "value": value
         }
       ],
-      "fingerprint": "1556737624368",
-      "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/4701785906/containers/11828399/workspaces/10/variables/1?apiLink=variable",
+      "fingerprint": fingerPrint,
+      "tagManagerUrl": tagManagerUrl,
       "formatValue": {}
     }
   })
