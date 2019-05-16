@@ -148,7 +148,7 @@ function getVariables(containerIDs, workspaceIDs) {
               let variables = response.result.variable;
               let i = 0;
               console.log("Variables ", variables);
-          /*    function loopVariables() {
+              function loopVariables() {
                 setTimeout(function () {
                   console.log("Value of i passed to loopVariables" + i);
                   let path = variables[i].path;
@@ -158,28 +158,28 @@ function getVariables(containerIDs, workspaceIDs) {
                   let variableName = variables[i].name;
                   let fingerPrint = variables[i].fingerprint;
                   let tagManagerUrl = variables[i].tagManagerUrl;
-                  let value = variables[i].customEventFilter[0].parameter[1].value;
-                  /*
-                  console.log("Trigger Number " + i);
+                  let value = variables[i].parameter[0].value;
+                  
+                  console.log("Variable Number " + i);
                   console.log(path);
                   console.log(containerID);
                   console.log(workspaceID);
-                  console.log(triggerID);
-                  console.log(triggerName);
+                  console.log(variableID);
+                  console.log(variableName);
                   console.log(fingerPrint);
                   console.log(tagManagerUrl);
                   console.log(value);
-                  */
+                  
                   console.log("Container IDs passed through to getVariables function is " + containerIDs);
                   console.log("Workspace IDs passed through to getVariables function is " + workspaceIDs);
-          /*        createVariables(containerIDs, workspaceIDs, path, containerID, workspaceID, variableID, variableName, fingerPrint, tagManagerUrl, value);
+                  //createVariables(containerIDs, workspaceIDs, path, containerID, workspaceID, variableID, variableName, fingerPrint, tagManagerUrl, value);
                   i++;
                   if (i < variables.length) {
                     loopVariables();
                   }
-                }, 60000)
+                }, 10000)
             }
-              loopVariables(); */
+              loopVariables(); 
             },
             function(err) { console.error("Execute error", err); });
 }
