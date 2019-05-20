@@ -69,9 +69,12 @@ function addContainers() {
     let i = 6;
     function loopContainers() {
       setTimeout(function () {
+        let containerName = "Container " + i;
+        console.log(containerName);
+        createContainers(containerName);
         i++;
         if (i < 15) {
-      	loopContainers();
+      	   loopContainers();
         }
       }, 10000)
     loopContainers();
