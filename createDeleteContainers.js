@@ -66,8 +66,14 @@ function createContainers(containerName) {
   }
 
 function addContainers() {
-  for (let i=6; i <= 15; i+=1) {
-    let containerName = "Container " + i;
-    createContainers(containerName);
+    let i = 6;
+    function loopContainers() {
+      setTimeout(function () {
+        i++;
+        if (i < 15) {
+      	loopContainers();
+        }
+      }, 10000)
+    loopContainers();
   }
 }
