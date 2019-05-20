@@ -82,3 +82,35 @@ function addContainers() {
     }
     loopContainers();
 }
+
+// Delete containers
+function deleteContainers(containerID) {
+  return gapi.client.tagmanager.accounts.containers.delete({
+    "path": `accounts/4701785906/containers/${containerID}`
+  })
+      .then(function(response) {
+              // Handle the results here (response.result has the parsed body).
+              console.log("Response", response);
+            },
+            function(err) { console.error("Execute error", err); });
+}
+
+function removeContainers() {
+  return gapi.client.tagmanager.accounts.containers.list({
+    "parent": "/accounts/4701785906"
+  })
+      .then(function(response) {
+            // Handle the results here (response.result has the parsed body).
+            console.log("Response", response);
+            const getContainers = response.result.container;
+            console.log(getContainers);
+            for (let i=0; i < getContainers.length; i +=1) {
+               let getContainerID = getContainers[i].containerId;
+               if (getContainerID != 11828399) {
+                  console.log("Container ID in main function " + getContainerID);
+                 //deleteContainers(getContainerID);
+               }
+            }
+            },
+            function(err) { console.error("Execute error", err); });
+}
