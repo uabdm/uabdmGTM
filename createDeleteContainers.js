@@ -66,7 +66,7 @@ function createContainers(containerName) {
   }
 }
 
-function incrementContainers() {
+function addContainers() {
   for (let i=6; i <= 15; i+=1) {
     let containerName = "Container " + i;
     createContainers(containerName);
