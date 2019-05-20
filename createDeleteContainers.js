@@ -67,6 +67,7 @@ function createContainers(containerName) {
 
 function addContainers() {
     let i = 6;
+    console.log("i " + i);
     function loopContainers() {
       setTimeout(function () {
         let containerName = "Container " + i;
