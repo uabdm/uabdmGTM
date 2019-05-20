@@ -67,9 +67,9 @@ function createContainers(containerName) {
 
 function addContainers() {
     let i = 6;
-    console.log("i " + i);
     function loopContainers() {
       setTimeout(function () {
+        console.log("Value of i passed to loopContainers " + i);
         let containerName = "Container " + i;
         console.log(containerName);
         createContainers(containerName);
@@ -78,6 +78,6 @@ function addContainers() {
       	   loopContainers();
         }
       }, 10000)
+    }
     loopContainers();
-  }
 }
