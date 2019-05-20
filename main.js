@@ -107,7 +107,7 @@ function getTags(containerIDs, workspaceIDs) {
                   let path = tags[i].path;
                   let containerID = tags[i].containerId;
                   let workspaceID = tags[i].workspaceId;
-                  let tagID = tags[i].triggerId;
+                  let tagID = tags[i].tagId;
                   let tagName = tags[i].name;
                   let fingerPrint = tags[i].fingerprint;
                   let tagManagerUrl = tags[i].tagManagerUrl;
