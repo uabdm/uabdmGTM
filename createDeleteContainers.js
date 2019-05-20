@@ -13,7 +13,7 @@ function initClient() {
       apiKey: 'AIzaSyDuDvkZ-vE52s-6QEc3HjWCg_KQULlkSWM',
       discoveryDocs: ["https://content.googleapis.com/discovery/v1/apis/tagmanager/v2/rest"],
       clientId: '659636898517-r6pov4qopv2pm7vshf0tpuf4ooeqnq7j.apps.googleusercontent.com',
-      scope: 'https://www.googleapis.com/auth/tagmanager.delete.containers'
+      scope: 'https://www.googleapis.com/auth/tagmanager.edit.containers'
   }).then(function () {
     // Listen for sign-in state changes.
     gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
@@ -110,7 +110,7 @@ function removeContainers() {
             		let getContainerID = getContainers[i].containerId;
             		if (getContainerID != 11828399) {
             		  console.log("Container ID in main function " + getContainerID);
-            		 deleteContainers(getContainerID);
+            		 //deleteContainers(getContainerID);
             		}
                 i++;
                 if (i < getContainers.length) {
