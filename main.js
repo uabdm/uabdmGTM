@@ -98,7 +98,41 @@ function getTags(containerIDs, workspaceIDs) {
   })
       .then(function(response) {
               // Handle the results here (response.result has the parsed body).
-              console.log("Response", response);
+              let tags = response.result.tag;
+              let i = 0;
+              console.log("Tags ", response);
+              function loopTags() {
+                setTimeout(function () {
+                  console.log("Value of i passed to loopTags" + i);
+                  let path = tags[i].path;
+                  let containerID = tags[i].containerId;
+                  let workspaceID = tags[i].workspaceId;
+                  let triggerID = tags[i].triggerId;
+                  let triggerName = tags[i].name;
+                  let fingerPrint = tags[i].fingerprint;
+                  let tagManagerUrl = tags[i].tagManagerUrl;
+                  let value = tags[i].parameter[7].value;
+                  /*
+                  console.log("Trigger Number " + i);
+                  console.log(path);
+                  console.log(containerID);
+                  console.log(workspaceID);
+                  console.log(triggerID);
+                  console.log(triggerName);
+                  console.log(fingerPrint);
+                  console.log(tagManagerUrl);
+                  console.log(value);
+                  */
+                  console.log("Container IDs passed through to GetTags function is " + containerIDs);
+                  console.log("Workspace IDs passed through to GetTags function is " + workspaceIDs);
+                  createTags(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
+                  i++;
+                  if (i < triggers.length) {
+                    loopTags();
+                  }
+                }, 60000)
+            }
+              loopTags();
             },
             function(err) { console.error("Execute error", err); });
 }
@@ -139,7 +173,7 @@ function getTriggers(containerIDs, workspaceIDs) {
                   console.log("Workspace IDs passed through to GetTriggers function is " + workspaceIDs);
                   createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
                   i++;
-                  if (i < triggers.length) {
+                  if (i < tags.length) {
                     loopTriggers();
                   }
                 }, 60000)
@@ -182,7 +216,7 @@ function getVariables(containerIDs, workspaceIDs) {
                   console.log(fingerPrint);
                   console.log(tagManagerUrl);
                   console.log(value); */
-                  
+
                   console.log("Container IDs passed through to getVariables function is " + containerIDs);
                   console.log("Workspace IDs passed through to getVariables function is " + workspaceIDs);
                   createVariables(containerIDs, workspaceIDs, path, containerID, workspaceID, variableID, variableName, fingerPrint, tagManagerUrl, value);
@@ -272,7 +306,7 @@ function createTags(containerIDs, workspaceIDs, path, containerID, workspaceID, 
         {
           "type": "template",
           "key": "trackingId",
-          "value": value 
+          "value": value
         }
       ],
       "fingerprint": fingerPrint,
