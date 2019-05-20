@@ -32,18 +32,20 @@
       <p>Log In With Google</p>
       <button class="btn red" id="authorize-button">Log In</button>
       <button class="btn red" id="signout-button">Log Out</button><br /><br />
-      <button class="btn red" onclick="execute()">Get Containers / Workspaces</button><br /><br />
+      <button class="btn red" onclick="execute()">Copy Items</button><br /><br />
       <button class="btn red" onclick="getTriggers()">Get Triggers</button><br /><br />
       <button class="btn red" onclick="getVariables()">Get Variables</button><br /><br />
       <button class="btn red" onclick="createTriggers()">Create Triggers</button><br /><br />
       <button class="btn red" onclick="createVariables()">Create Variables</button><br /><br />
+      <button class="btn red" onclick="createContainers()">Create Containers</button><br /><br />
+      <button class="btn red" onclick="deleteContainers()">Delete Containers</button><br /><br />
       <br>
     </div>
   </section>
 
 <!-- Compiled and minified JavaScript from Materialize -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="main.js"></script>
+<script src="createDeleteContainers.js"></script>
 <script async defer src="https://apis.google.com/js/api.js"
         onload="this.onload=function(){};handleClientLoad()"
         onreadystatechange="if (this.readyState === 'complete') this.onload()">
