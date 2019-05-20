@@ -64,9 +64,8 @@ function createContainers(containerName) {
               },
               function(err) { console.error("Execute error", err); });
   }
-}
 
-function addContainers() {
+function incrementContainers() {
   for (let i=6; i <= 15; i+=1) {
     let containerName = "Container " + i;
     createContainers(containerName);
