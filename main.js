@@ -59,7 +59,8 @@ function getWorkspaceID(containerID) {
                   console.log("Workspace ID " + workspaceIDs);
                   // createFolders(containerIDs, workspaceIDs);
                   //getTriggers(containerIDs, workspaceIDs);
-                  getVariables(containerIDs, workspaceIDs);
+                  //getVariables(containerIDs, workspaceIDs);
+                  getTags(containerIDs, workspaceIDs);
                 },
                 function(err) { console.error("Execute error", err); });
 }
@@ -90,10 +91,22 @@ function getWorkspaceID(containerID) {
 }
 */
 
-// Get a list of every trigger from the Cookie Consent Container
+// Get a list of every tag from the source container
+function getTags(containerIDs, workspaceIDs) {
+  return gapi.client.tagmanager.accounts.containers.workspaces.tags.list({
+    "parent": "accounts/4701785906/containers/11828399/workspaces/11"
+  })
+      .then(function(response) {
+              // Handle the results here (response.result has the parsed body).
+              console.log("Response", response);
+            },
+            function(err) { console.error("Execute error", err); });
+}
+
+// Get a list of every trigger from the source container
 function getTriggers(containerIDs, workspaceIDs) {
   return gapi.client.tagmanager.accounts.containers.workspaces.triggers.list({
-    "parent": "accounts/4701785906/containers/11828399/workspaces/10"
+    "parent": "accounts/4701785906/containers/11828399/workspaces/11"
   })
       .then(function(response) {
               // Handle the results here (response.result has the parsed body).
@@ -136,10 +149,10 @@ function getTriggers(containerIDs, workspaceIDs) {
             function(err) { console.error("Execute error", err); });
 }
 
-// Get a list of every variable from the Cookie Consent Container
+// Get a list of every variable from the source container
 function getVariables(containerIDs, workspaceIDs) {
   return gapi.client.tagmanager.accounts.containers.workspaces.variables.list({
-    "parent": "accounts/4701785906/containers/11828399/workspaces/10"
+    "parent": "accounts/4701785906/containers/11828399/workspaces/11"
   })
       .then(function(response) {
               // Handle the results here (response.result has the parsed body).
@@ -184,6 +197,96 @@ function getVariables(containerIDs, workspaceIDs) {
             function(err) { console.error("Execute error", err); });
 }
 
+// Create each tag individually from the list retrieved from the getTags function
+function createTags(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, value) {
+  console.log(path);
+  console.log(containerIDs);
+  console.log(workspaceIDs);
+  console.log(triggerID);
+  console.log(triggerName);
+  console.log(fingerPrint);
+  console.log(tagManagerUrl);
+  console.log(value);
+  return gapi.client.tagmanager.accounts.containers.workspaces.tags.create({
+    "parent": `accounts/4701785906/containers/${containerIDs}/workspaces/${workspaceIDs}`,
+    "resource": {
+      "path": path,
+      "accountId": "4701785906",
+      "containerId": "11828399",
+      "workspaceId": "11",
+      "tagId": tagID,
+      "name": tagName,
+      "type": "ua",
+      "parameter": [
+        {
+          "type": "boolean",
+          "key": "nonInteraction",
+          "value": "false"
+        },
+        {
+          "type": "boolean",
+          "key": "overrideGaSettings",
+          "value": "true"
+        },
+        {
+          "type": "list",
+          "key": "fieldsToSet",
+          "list": [
+            {
+              "type": "map",
+              "map": [
+                {
+                  "type": "template",
+                  "key": "fieldName",
+                  "value": "cookieDomain"
+                },
+                {
+                  "type": "template",
+                  "key": "value",
+                  "value": "auto"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "template",
+          "key": "eventCategory",
+          "value": "Videos"
+        },
+        {
+          "type": "template",
+          "key": "trackType",
+          "value": "TRACK_EVENT"
+        },
+        {
+          "type": "template",
+          "key": "eventAction",
+          "value": "Video Action"
+        },
+        {
+          "type": "template",
+          "key": "eventLabel",
+          "value": "Video Name"
+        },
+        {
+          "type": "template",
+          "key": "trackingId",
+          "value": value 
+        }
+      ],
+      "fingerprint": fingerPrint,
+      "tagFiringOption": "oncePerEvent",
+      "tagManagerUrl": tagManagerUrl
+    }
+  })
+      .then(function(response) {
+              // Handle the results here (response.result has the parsed body).
+              console.log("Response", response);
+            },
+            function(err) { console.error("Execute error", err); });
+}
+
 // Create each trigger individually from the list retrieved from the getTriggers function
 function createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value) {
   console.log(path);
@@ -200,7 +303,7 @@ function createTriggers(containerIDs, workspaceIDs, path, containerID, workspace
       "path": path,
       "accountId": "4701785906",
       "containerId": "11828399",
-      "workspaceId": "10",
+      "workspaceId": "11",
       "triggerId": triggerID,
       "name": triggerName,
       "type": "customEvent",
@@ -248,7 +351,7 @@ function createVariables(containerIDs, workspaceIDs, path, containerID, workspac
       "path": path,
       "accountId": "4701785906",
       "containerId": "11828399",
-      "workspaceId": "10",
+      "workspaceId": "11",
       "variableId": variableID,
       "name": variableName,
       "type": "jsm",
