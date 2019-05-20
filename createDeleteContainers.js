@@ -104,13 +104,21 @@ function removeContainers() {
             console.log("Response", response);
             const getContainers = response.result.container;
             console.log(getContainers);
-            for (let i=0; i < getContainers.length; i +=1) {
-               let getContainerID = getContainers[i].containerId;
-               if (getContainerID != 11828399) {
-                  console.log("Container ID in main function " + getContainerID);
-                 //deleteContainers(getContainerID);
-               }
+            let i = 0;
+            function loopRemoveContainers() {
+              setTimeout(function () {
+            		let getContainerID = getContainers[i].containerId;
+            		if (getContainerID != 11828399) {
+            		  console.log("Container ID in main function " + getContainerID);
+            		 //deleteContainers(getContainerID);
+            		}
+                i++;
+                if (i < getContainers.length) {
+              	   loopRemoveContainers();
+                }
+              }, 10000)
             }
+            loopRemoveContainers();
             },
             function(err) { console.error("Execute error", err); });
 }
