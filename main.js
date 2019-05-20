@@ -107,8 +107,8 @@ function getTags(containerIDs, workspaceIDs) {
                   let path = tags[i].path;
                   let containerID = tags[i].containerId;
                   let workspaceID = tags[i].workspaceId;
-                  let triggerID = tags[i].triggerId;
-                  let triggerName = tags[i].name;
+                  let tagID = tags[i].triggerId;
+                  let tagName = tags[i].name;
                   let fingerPrint = tags[i].fingerprint;
                   let tagManagerUrl = tags[i].tagManagerUrl;
                   let value = tags[i].parameter[7].value;
@@ -125,9 +125,9 @@ function getTags(containerIDs, workspaceIDs) {
                   */
                   console.log("Container IDs passed through to GetTags function is " + containerIDs);
                   console.log("Workspace IDs passed through to GetTags function is " + workspaceIDs);
-                  createTags(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
+                  createTags(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, value);
                   i++;
-                  if (i < triggers.length) {
+                  if (i < tags.length) {
                     loopTags();
                   }
                 }, 60000)
@@ -173,7 +173,7 @@ function getTriggers(containerIDs, workspaceIDs) {
                   console.log("Workspace IDs passed through to GetTriggers function is " + workspaceIDs);
                   createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
                   i++;
-                  if (i < tags.length) {
+                  if (i < triggers.length) {
                     loopTriggers();
                   }
                 }, 60000)
@@ -236,8 +236,8 @@ function createTags(containerIDs, workspaceIDs, path, containerID, workspaceID, 
   console.log(path);
   console.log(containerIDs);
   console.log(workspaceIDs);
-  console.log(triggerID);
-  console.log(triggerName);
+  console.log(tagID);
+  console.log(tagName);
   console.log(fingerPrint);
   console.log(tagManagerUrl);
   console.log(value);
