@@ -47,23 +47,28 @@ signoutButton.addEventListener("click", function(){
 });
 
 // Create Containers
-function createContainers() {
-  for (let i=6; i <= 15; i+=1) {
-  let containerName = "Container " + i;
-  console.log(containerName);
-  return gapi.client.tagmanager.accounts.containers.create({
-    "parent": "accounts/4701785906",
-    "resource": {
-      "name": containerName,
-      "usageContext": [
-        "web"
-      ]
-    }
-  })
-      .then(function(response) {
-              // Handle the results here (response.result has the parsed body).
-              console.log("Response", response);
-            },
-            function(err) { console.error("Execute error", err); });
+function createContainers(containerName) {
+    console.log(containerName);
+    return gapi.client.tagmanager.accounts.containers.create({
+      "parent": "accounts/4701785906",
+      "resource": {
+        "name": containerName,
+        "usageContext": [
+          "web"
+        ]
+      }
+    })
+        .then(function(response) {
+                // Handle the results here (response.result has the parsed body).
+                console.log("Response", response);
+              },
+              function(err) { console.error("Execute error", err); });
+  }
 }
+
+function incrementContainers() {
+  for (let i=6; i <= 15; i+=1) {
+    let containerName = "Container " + i;
+    createContainers(containerName);
+  }
 }
