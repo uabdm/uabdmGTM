@@ -428,7 +428,7 @@ function execute() {
                 if (i < getContainers.length) {
                   loopContainers();
                 }
-              }, 10000)
+              }, 20000)
             }           
             loopContainers();
 /*          for (let i=0; i < getContainers.length; i +=1) {
