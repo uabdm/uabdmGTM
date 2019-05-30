@@ -1,3 +1,5 @@
+/* 
+
 const authorizeButton = document.getElementById('authorize-button');
 const signoutButton = document.getElementById('signout-button');
 
@@ -45,6 +47,8 @@ authorizeButton.addEventListener("click", function(){
 signoutButton.addEventListener("click", function(){
   gapi.auth2.getAuthInstance().signOut();
 });
+
+*/
 
 // Create Containers
 function createContainers(containerName) {
