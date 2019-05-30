@@ -79,7 +79,7 @@ function addContainers() {
         console.log(containerName);
         createContainers(containerName);
         i++;
-        if (i < 25) {
+        if (i < 16) {
       	   loopContainers();
         }
       }, 10000)
