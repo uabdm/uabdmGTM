@@ -85,6 +85,7 @@ function addContainers() {
 
 // Delete containers
 function deleteContainers(containerID) {
+  console.log("Container ID passed to delete function " + containerID);
   return gapi.client.tagmanager.accounts.containers.delete({
     "path": `accounts/4701785906/containers/${containerID}`
   })
@@ -109,7 +110,6 @@ function removeContainers() {
               setTimeout(function () {
             		let getContainerID = getContainers[i].containerId;
             		if (getContainerID != 11828399) {
-            		  console.log("Container ID in main function " + getContainerID);
             		  deleteContainers(getContainerID);
             		}
                 i++;
