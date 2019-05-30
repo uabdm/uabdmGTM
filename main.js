@@ -418,6 +418,7 @@ function execute() {
             console.log("Response", response);
             const getContainers = response.result.container;
             console.log(getContainers);
+            let i = 0;
             function loopContainers() {
               setTimeout(function () {
                 let getContainerID = getContainers[i].containerId;
