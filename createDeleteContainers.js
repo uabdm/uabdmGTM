@@ -66,7 +66,7 @@ function createContainers(containerName) {
   }
 
 function addContainers() {
-    let i = 6;
+    let i = 1;
     console.log("Value of i is " + i);
     function loopContainers() {
       setTimeout(function () {
@@ -75,7 +75,7 @@ function addContainers() {
         console.log(containerName);
         createContainers(containerName);
         i++;
-        if (i < 15) {
+        if (i < 25) {
       	   loopContainers();
         }
       }, 10000)
