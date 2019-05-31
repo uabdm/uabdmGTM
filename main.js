@@ -58,9 +58,9 @@ function getWorkspaceID(containerID) {
                   console.log("Get Workspace Response ", response);
                   console.log("Workspace ID " + workspaceIDs);
                   // createFolders(containerIDs, workspaceIDs);
-                  //getTriggers(containerIDs, workspaceIDs);
+                  getTriggers(containerIDs, workspaceIDs);
                   //getVariables(containerIDs, workspaceIDs);
-                  getTags(containerIDs, workspaceIDs);
+                  //getTags(containerIDs, workspaceIDs);
                 },
                 function(err) { console.error("Execute error", err); });
 }
@@ -428,7 +428,7 @@ function execute() {
                 if (i < getContainers.length) {
                   loopContainers();
                 }
-              }, 20000)
+              }, 60000)
             }
             loopContainers();
 /*          for (let i=0; i < getContainers.length; i +=1) {
