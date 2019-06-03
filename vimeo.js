@@ -419,6 +419,7 @@ function execute() {
             const getContainers = response.result.container;
             console.log(getContainers);
             let i = 0;
+            loopContainers();
             function loopContainers() {
               setTimeout(function () {
                 let getContainerID = getContainers[i].containerId;
@@ -428,9 +429,9 @@ function execute() {
                 if (i < getContainers.length) {
                   loopContainers();
                 }
-              }, 60000)
+              }, 10000)
             }
-            loopContainers();
+
 /*          for (let i=0; i < getContainers.length; i +=1) {
                let getContainerID = getContainers[i].containerId;
                let workspaceID = getWorkspaceID(getContainerID);
