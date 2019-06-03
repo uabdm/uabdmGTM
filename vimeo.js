@@ -388,17 +388,26 @@ function createVariables(containerIDs, workspaceIDs, path, containerID, workspac
       "workspaceId": "7",
       "variableId": variableID,
       "name": variableName,
-      "type": "jsm",
+      "type": "v",
       "parameter": [
-        {
-          "type": "template",
-          "key": "javascript",
-          "value": value
-        }
-      ],
+          {
+            "type": "boolean",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "integer",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "template",
+            "key": "name",
+            "value": value
+          }
+        ],
       "fingerprint": fingerPrint,
-      "tagManagerUrl": tagManagerUrl,
-      "formatValue": {}
+      "tagManagerUrl": tagManagerUrl
     }
   })
       .then(function(response) {
