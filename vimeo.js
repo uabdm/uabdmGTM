@@ -100,6 +100,7 @@ function getTags(containerIDs, workspaceIDs) {
               // Handle the results here (response.result has the parsed body).
               let tags = response.result.tag;
               let i = 0;
+              loopTags();
               console.log("Tags ", response);
               function loopTags() {
                 setTimeout(function () {
@@ -132,7 +133,6 @@ function getTags(containerIDs, workspaceIDs) {
                   }
                 }, 60000)
             }
-              loopTags();
             },
             function(err) { console.error("Execute error", err); });
 }
@@ -146,6 +146,7 @@ function getTriggers(containerIDs, workspaceIDs) {
               // Handle the results here (response.result has the parsed body).
               let triggers = response.result.trigger;
               let i = 0;
+              loopTriggers();
               console.log("Triggers ", triggers);
               function loopTriggers() {
                 setTimeout(function () {
@@ -178,7 +179,6 @@ function getTriggers(containerIDs, workspaceIDs) {
                   }
                 }, 60000)
             }
-              loopTriggers();
             },
             function(err) { console.error("Execute error", err); });
 }
@@ -220,12 +220,12 @@ function getVariables(containerIDs, workspaceIDs) {
 
                   console.log("Container IDs passed through to getVariables function is " + containerIDs);
                   console.log("Workspace IDs passed through to getVariables function is " + workspaceIDs);
-                  //createVariables(containerIDs, workspaceIDs, path, containerID, workspaceID, variableID, variableName, fingerPrint, tagManagerUrl, value);
+                  createVariables(containerIDs, workspaceIDs, path, containerID, workspaceID, variableID, variableName, fingerPrint, tagManagerUrl, value);
                   i++;
                   if (i < variables.length) {
                     loopVariables();
                   }
-                }, 10000)
+                }, 60000)
             }
             },
             function(err) { console.error("Execute error", err); });
@@ -429,7 +429,7 @@ function execute() {
                 if (i < getContainers.length) {
                   loopContainers();
                 }
-              }, 10000)
+              }, 60000)
             }
 /*          for (let i=0; i < getContainers.length; i +=1) {
                let getContainerID = getContainers[i].containerId;
