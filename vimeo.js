@@ -429,7 +429,7 @@ function execute() {
                 if (i < getContainers.length) {
                   loopContainers();
                 }
-              }, 60000)
+              }, 10000)
             }
 /*          for (let i=0; i < getContainers.length; i +=1) {
                let getContainerID = getContainers[i].containerId;
