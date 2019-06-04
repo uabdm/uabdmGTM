@@ -239,7 +239,8 @@ function getVariables(containerIDs, workspaceIDs) {
 }
 
 // Create custom tag individually from the list retrieved from the getTags function
-function createCustomTag(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, value, type) {
+function createCustomTag(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, type) {
+  console.log("Run createCustomTag function...");
   console.log(path);
   console.log(containerIDs);
   console.log(workspaceIDs);
@@ -283,7 +284,8 @@ function createCustomTag(containerIDs, workspaceIDs, path, containerID, workspac
 }
 
 // Create event tag individually from the list retrieved from the getTags function
-function createEventTag(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, value, type) {
+function createEventTag(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, type) {
+  console.log("Run createEventTag function...");
   console.log(path);
   console.log(containerIDs);
   console.log(workspaceIDs);
