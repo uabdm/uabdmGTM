@@ -124,7 +124,7 @@ function getTags(containerIDs, workspaceIDs) {
                       let parameterKey = tags[i].parameter[j].key;
                       let parameterValue = tags[i].parameter[j].value; 
                       console.log(parameterType);
-                      console.log(parameterKey;
+                      console.log(parameterKey);
                       console.log(parameterValue);                      
                       j++;
                       if (j < parameters.length) {
