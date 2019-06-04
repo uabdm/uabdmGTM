@@ -130,12 +130,12 @@ function getTags(containerIDs, workspaceIDs) {
                   console.log("Workspace IDs passed through to GetTags function is " + workspaceIDs);
 
                   if (i === 0) {
-                    console.log("Running createCustomTag function...");
-                    //createCustomTag(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, type);
+                    //console.log("Running createCustomTag function...");
+                    createCustomTag(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, type);
                   }
                   if (i === 1) {
-                    console.log("Running createEventTag function...");
-                    //createEventTag(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, type);
+                    //console.log("Running createEventTag function...");
+                    createEventTag(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, type);
                   }
 
                   i++;
