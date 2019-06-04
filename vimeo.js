@@ -58,8 +58,8 @@ function getWorkspaceID(containerID) {
                   console.log("Get Workspace Response ", response);
                   console.log("Workspace ID " + workspaceIDs);
                   // createFolders(containerIDs, workspaceIDs);
-                  //getTriggers(containerIDs, workspaceIDs);
-                  getVariables(containerIDs, workspaceIDs);
+                  getTriggers(containerIDs, workspaceIDs);
+                  //getVariables(containerIDs, workspaceIDs);
                   //getTags(containerIDs, workspaceIDs);
                 },
                 function(err) { console.error("Execute error", err); });
@@ -159,7 +159,7 @@ function getTriggers(containerIDs, workspaceIDs) {
                   let fingerPrint = triggers[i].fingerprint;
                   let tagManagerUrl = triggers[i].tagManagerUrl;
                   let value = triggers[i].customEventFilter[0].parameter[1].value;
-                  /*
+                  
                   console.log("Trigger Number " + i);
                   console.log(path);
                   console.log(containerID);
@@ -169,10 +169,10 @@ function getTriggers(containerIDs, workspaceIDs) {
                   console.log(fingerPrint);
                   console.log(tagManagerUrl);
                   console.log(value);
-                  */
+                  
                   console.log("Container IDs passed through to GetTriggers function is " + containerIDs);
                   console.log("Workspace IDs passed through to GetTriggers function is " + workspaceIDs);
-                  createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
+                  //createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
                   i++;
                   if (i < triggers.length) {
                     loopTriggers();
