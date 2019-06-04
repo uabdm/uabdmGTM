@@ -112,25 +112,7 @@ function getTags(containerIDs, workspaceIDs) {
                   let tagName = tags[i].name;
                   let fingerPrint = tags[i].fingerprint;
                   let tagManagerUrl = tags[i].tagManagerUrl;
-                  let type = tags[i].type;
-                  
-                  let parameters = response.result.tag[i].parameter;
-                  let j = 0;
-                  loopParameters();
-                  function loopParameters() {
-                    setTimeout(function () {
-                      let parameterType = tags[i].parameter[j].type;
-                      let parameterKey = tags[i].parameter[j].key;
-                      let parameterValue = tags[i].parameter[j].value; 
-                      console.log(parameterType);
-                      console.log(parameterKey);
-                      console.log(parameterValue);                      
-                      j++;
-                      if (j < parameters.length) {
-                        loopParameters();
-                      }
-                    }, 6000)
-                  }              
+                  let type = tags[i].type;     
                   
                   console.log("Tag Number " + i);
                   console.log(path);
