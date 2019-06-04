@@ -118,8 +118,8 @@ function getTags(containerIDs, workspaceIDs) {
                   console.log(path);
                   console.log(containerID);
                   console.log(workspaceID);
-                  console.log(triggerID);
-                  console.log(triggerName);
+                  console.log(tagID);
+                  console.log(tagName);
                   console.log(fingerPrint);
                   console.log(tagManagerUrl);
                   console.log(type);
