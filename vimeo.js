@@ -114,7 +114,7 @@ function getTags(containerIDs, workspaceIDs) {
                   let tagManagerUrl = tags[i].tagManagerUrl;
                   let type = tags[i].type;     
                   
-                  /*console.log("Tag Number " + i);
+                  console.log("Tag Number " + i);
                   console.log(path);
                   console.log(containerID);
                   console.log(workspaceID);
@@ -123,15 +123,17 @@ function getTags(containerIDs, workspaceIDs) {
                   console.log(fingerPrint);
                   console.log(tagManagerUrl);
                   console.log(type);
-                  */
+                  
                   
                   console.log("Container IDs passed through to GetTags function is " + containerIDs);
                   console.log("Workspace IDs passed through to GetTags function is " + workspaceIDs);
                   
                   if (tagName = 'CU - Vimeo Tracking - LunaMetrics Plugin') {
-                    createCustomTag(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, type);
+                    console.log("Running createCustomTag function...");
+                    //createCustomTag(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, type);
                   } else if (tagName = 'GA - Event - Vimeo Tracking') {
-                    createEventTag(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, type);
+                    console.log("Running createCustomTag function...");
+                    //createEventTag(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, type);
                   }
                  
                   i++;
