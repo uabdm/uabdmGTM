@@ -132,7 +132,7 @@ function getTags(containerIDs, workspaceIDs) {
                     console.log("Running createCustomTag function...");
                     //createCustomTag(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, type);
                   } else if (tagName = 'GA - Event - Vimeo Tracking') {
-                    console.log("Running createCustomTag function...");
+                    console.log("Running createEventTag function...");
                     //createEventTag(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, type);
                   }
                  
