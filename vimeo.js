@@ -113,6 +113,25 @@ function getTags(containerIDs, workspaceIDs) {
                   let fingerPrint = tags[i].fingerprint;
                   let tagManagerUrl = tags[i].tagManagerUrl;
                   let value = tags[i].parameter[7].value;
+                  let type = tags[i].type;
+                  
+                  let parameters = response.result.tag[i].parameter;
+                  let j = 0;
+                  loopParameters();
+                  function loopParameters() {
+                    setTimeout(function () {
+                      let parameterType = tags[i].parameter[j].type;
+                      let parameterKey = tags[i].parameter[j].key;
+                      let parameterValue = tags[i].parameter[j].value; 
+                      console.log(parameterType);
+                      console.log(parameterKey;
+                      console.log(parameterValue);                      
+                      j++;
+                      if (j < parameters.length) {
+                        loopParameters();
+                      }
+                    }, 6000)
+                  }              
                   
                   console.log("Tag Number " + i);
                   console.log(path);
@@ -123,10 +142,11 @@ function getTags(containerIDs, workspaceIDs) {
                   console.log(fingerPrint);
                   console.log(tagManagerUrl);
                   console.log(value);
+                  console.log(type);
                   
                   console.log("Container IDs passed through to GetTags function is " + containerIDs);
                   console.log("Workspace IDs passed through to GetTags function is " + workspaceIDs);
-                  //createTags(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, value);
+                  //createTags(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, value, type);
                   i++;
                   if (i < tags.length) {
                     loopTags();
@@ -232,7 +252,7 @@ function getVariables(containerIDs, workspaceIDs) {
 }
 
 // Create each tag individually from the list retrieved from the getTags function
-function createTags(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, value) {
+function createTags(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, value, type) {
   console.log(path);
   console.log(containerIDs);
   console.log(workspaceIDs);
@@ -241,6 +261,7 @@ function createTags(containerIDs, workspaceIDs, path, containerID, workspaceID, 
   console.log(fingerPrint);
   console.log(tagManagerUrl);
   console.log(value);
+  console.log(type);
   return gapi.client.tagmanager.accounts.containers.workspaces.tags.create({
     "parent": `accounts/4485174692/containers/${containerIDs}/workspaces/${workspaceIDs}`,
     "resource": {
@@ -250,7 +271,7 @@ function createTags(containerIDs, workspaceIDs, path, containerID, workspaceID, 
       "workspaceId": "7",
       "tagId": tagID,
       "name": tagName,
-      "type": "ua",
+      "type": type,
       "parameter": [
         {
           "type": "boolean",
