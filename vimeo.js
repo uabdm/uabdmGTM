@@ -58,9 +58,9 @@ function getWorkspaceID(containerID) {
                   console.log("Get Workspace Response ", response);
                   console.log("Workspace ID " + workspaceIDs);
                   // createFolders(containerIDs, workspaceIDs);
-                  getTriggers(containerIDs, workspaceIDs);
+                  //getTriggers(containerIDs, workspaceIDs);
                   //getVariables(containerIDs, workspaceIDs);
-                  //getTags(containerIDs, workspaceIDs);
+                  getTags(containerIDs, workspaceIDs);
                 },
                 function(err) { console.error("Execute error", err); });
 }
@@ -113,8 +113,8 @@ function getTags(containerIDs, workspaceIDs) {
                   let fingerPrint = tags[i].fingerprint;
                   let tagManagerUrl = tags[i].tagManagerUrl;
                   let value = tags[i].parameter[7].value;
-                  /*
-                  console.log("Trigger Number " + i);
+                  
+                  console.log("Tag Number " + i);
                   console.log(path);
                   console.log(containerID);
                   console.log(workspaceID);
@@ -123,10 +123,10 @@ function getTags(containerIDs, workspaceIDs) {
                   console.log(fingerPrint);
                   console.log(tagManagerUrl);
                   console.log(value);
-                  */
+                  
                   console.log("Container IDs passed through to GetTags function is " + containerIDs);
                   console.log("Workspace IDs passed through to GetTags function is " + workspaceIDs);
-                  createTags(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, value);
+                  //createTags(containerIDs, workspaceIDs, path, containerID, workspaceID, tagID, tagName, fingerPrint, tagManagerUrl, value);
                   i++;
                   if (i < tags.length) {
                     loopTags();
@@ -151,7 +151,7 @@ function getTriggers(containerIDs, workspaceIDs) {
               function loopTriggers() {
                 setTimeout(function () {
                   console.log("Value of i passed to loopTriggers" + i);
-                  let path = triggers[i].path; 
+                  let path = triggers[i].path;
                   let containerID = triggers[i].containerId;
                   let workspaceID = triggers[i].workspaceId;
                   let triggerID = triggers[i].triggerId;
