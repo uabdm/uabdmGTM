@@ -151,7 +151,7 @@ function getTriggers(containerIDs, workspaceIDs) {
               function loopTriggers() {
                 setTimeout(function () {
                   console.log("Value of i passed to loopTriggers" + i);
-                  let path = triggers[i].path;
+                  let path = triggers[i].path; 
                   let containerID = triggers[i].containerId;
                   let workspaceID = triggers[i].workspaceId;
                   let triggerID = triggers[i].triggerId;
@@ -159,7 +159,7 @@ function getTriggers(containerIDs, workspaceIDs) {
                   let fingerPrint = triggers[i].fingerprint;
                   let tagManagerUrl = triggers[i].tagManagerUrl;
                   let value = triggers[i].customEventFilter[0].parameter[1].value;
-                  
+                  /*
                   console.log("Trigger Number " + i);
                   console.log(path);
                   console.log(containerID);
@@ -169,10 +169,10 @@ function getTriggers(containerIDs, workspaceIDs) {
                   console.log(fingerPrint);
                   console.log(tagManagerUrl);
                   console.log(value);
-                  
+                  */
                   console.log("Container IDs passed through to GetTriggers function is " + containerIDs);
                   console.log("Workspace IDs passed through to GetTriggers function is " + workspaceIDs);
-                  //createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
+                  createTriggers(containerIDs, workspaceIDs, path, containerID, workspaceID, triggerID, triggerName, fingerPrint, tagManagerUrl, value);
                   i++;
                   if (i < triggers.length) {
                     loopTriggers();
