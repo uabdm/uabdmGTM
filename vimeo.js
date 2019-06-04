@@ -112,7 +112,6 @@ function getTags(containerIDs, workspaceIDs) {
                   let tagName = tags[i].name;
                   let fingerPrint = tags[i].fingerprint;
                   let tagManagerUrl = tags[i].tagManagerUrl;
-                  let value = tags[i].parameter[7].value;
                   let type = tags[i].type;
                   
                   let parameters = response.result.tag[i].parameter;
