@@ -122,7 +122,6 @@ function getTags(containerIDs, workspaceIDs) {
                   console.log(triggerName);
                   console.log(fingerPrint);
                   console.log(tagManagerUrl);
-                  console.log(value);
                   console.log(type);
                   
                   console.log("Container IDs passed through to GetTags function is " + containerIDs);
