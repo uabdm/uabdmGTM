@@ -231,7 +231,7 @@ function getVariables(containerIDs, workspaceIDs) {
 
                   console.log("Container IDs passed through to getVariables function is " + containerIDs);
                   console.log("Workspace IDs passed through to getVariables function is " + workspaceIDs);
-                  createVariables(containerIDs, workspaceIDs, path, containerID, workspaceID, variableID, variableName, fingerPrint, tagManagerUrl, value);
+                  //createVariables(containerIDs, workspaceIDs, path, containerID, workspaceID, variableID, variableName, fingerPrint, tagManagerUrl, value);
                   i++;
                   if (i < variables.length) {
                     loopVariables();
