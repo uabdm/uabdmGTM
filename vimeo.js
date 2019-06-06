@@ -219,7 +219,7 @@ function getVariables(containerIDs, workspaceIDs) {
                   let tagManagerUrl = variables[i].tagManagerUrl;
                   let value = variables[i].parameter[2].value;
 
-                /*  console.log("Variable Number " + i);
+                  console.log("Variable Number " + i);
                   console.log(path);
                   console.log(containerID);
                   console.log(workspaceID);
@@ -227,7 +227,7 @@ function getVariables(containerIDs, workspaceIDs) {
                   console.log(variableName);
                   console.log(fingerPrint);
                   console.log(tagManagerUrl);
-                  console.log(value); */
+                  console.log(value);
 
                   console.log("Container IDs passed through to getVariables function is " + containerIDs);
                   console.log("Workspace IDs passed through to getVariables function is " + workspaceIDs);
