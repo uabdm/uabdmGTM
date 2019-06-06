@@ -218,7 +218,7 @@ function getVariables(containerIDs, workspaceIDs) {
                   let fingerPrint = variables[i].fingerprint;
                   let tagManagerUrl = variables[i].tagManagerUrl;
                   let value = variables[i].parameter[2].value;
-
+                  /*
                   console.log("Variable Number " + i);
                   console.log(path);
                   console.log(containerID);
@@ -228,10 +228,10 @@ function getVariables(containerIDs, workspaceIDs) {
                   console.log(fingerPrint);
                   console.log(tagManagerUrl);
                   console.log(value);
-
+                  */
                   console.log("Container IDs passed through to getVariables function is " + containerIDs);
                   console.log("Workspace IDs passed through to getVariables function is " + workspaceIDs);
-                  //createVariables(containerIDs, workspaceIDs, path, containerID, workspaceID, variableID, variableName, fingerPrint, tagManagerUrl, value);
+                  createVariables(containerIDs, workspaceIDs, path, containerID, workspaceID, variableID, variableName, fingerPrint, tagManagerUrl, value);
                   i++;
                   if (i < variables.length) {
                     loopVariables();
