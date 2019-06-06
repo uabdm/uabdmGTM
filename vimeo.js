@@ -59,8 +59,8 @@ function getWorkspaceID(containerID) {
                   console.log("Workspace ID " + workspaceIDs);
                   // createFolders(containerIDs, workspaceIDs);
                   //getTriggers(containerIDs, workspaceIDs);
-                  //getVariables(containerIDs, workspaceIDs);
-                  getTags(containerIDs, workspaceIDs);
+                  getVariables(containerIDs, workspaceIDs);
+                  //getTags(containerIDs, workspaceIDs);
                 },
                 function(err) { console.error("Execute error", err); });
 }
@@ -231,7 +231,7 @@ function getVariables(containerIDs, workspaceIDs) {
 
                   console.log("Container IDs passed through to getVariables function is " + containerIDs);
                   console.log("Workspace IDs passed through to getVariables function is " + workspaceIDs);
-                  createVariables(containerIDs, workspaceIDs, path, containerID, workspaceID, variableID, variableName, fingerPrint, tagManagerUrl, value);
+                  //createVariables(containerIDs, workspaceIDs, path, containerID, workspaceID, variableID, variableName, fingerPrint, tagManagerUrl, value);
                   i++;
                   if (i < variables.length) {
                     loopVariables();
