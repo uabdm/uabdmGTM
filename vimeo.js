@@ -60,7 +60,7 @@ function getWorkspaceID(containerID) {
                   // createFolders(containerIDs, workspaceIDs);
                   //getTriggers(containerIDs, workspaceIDs);
                   //getVariables(containerIDs, workspaceIDs);
-                  getTags(containerIDs, workspaceIDs);
+                  //getTags(containerIDs, workspaceIDs);
                 },
                 function(err) { console.error("Execute error", err); });
 }
