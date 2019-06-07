@@ -49,7 +49,7 @@ signoutButton.addEventListener("click", function(){
 // Get Workspace IDs of destination containers. Make sure the client is loaded and sign-in is complete before calling this method.
 function getWorkspaceID(containerID) {
   return gapi.client.tagmanager.accounts.containers.workspaces.list({
-        "parent": "accounts/1101713970/containers/" + containerID
+        "parent": "accounts/508017233/containers/" + containerID
       })
           .then(function(response) {
                   // Handle the results here (response.result has the parsed body).
@@ -60,7 +60,7 @@ function getWorkspaceID(containerID) {
                   // createFolders(containerIDs, workspaceIDs);
                   //getTriggers(containerIDs, workspaceIDs);
                   //getVariables(containerIDs, workspaceIDs);
-                  getTags(containerIDs, workspaceIDs);
+                  //getTags(containerIDs, workspaceIDs);
                 },
                 function(err) { console.error("Execute error", err); });
 }
@@ -254,7 +254,7 @@ function createCustomTag(containerIDs, workspaceIDs, path, containerID, workspac
   console.log(tagManagerUrl);
   console.log(type);
   return gapi.client.tagmanager.accounts.containers.workspaces.tags.create({
-    "parent": `accounts/1101713970/containers/${containerIDs}/workspaces/${workspaceIDs}`,
+    "parent": `accounts/508017233/containers/${containerIDs}/workspaces/${workspaceIDs}`,
     "resource": {
       "path": path,
       "accountId": "4702107503",
@@ -299,7 +299,7 @@ function createEventTag(containerIDs, workspaceIDs, path, containerID, workspace
   console.log(tagManagerUrl);
   console.log(type);
   return gapi.client.tagmanager.accounts.containers.workspaces.tags.create({
-    "parent": `accounts/1101713970/containers/${containerIDs}/workspaces/${workspaceIDs}`,
+    "parent": `accounts/508017233/containers/${containerIDs}/workspaces/${workspaceIDs}`,
     "resource": {
       "path": path,
       "accountId": "4702107503",
@@ -414,7 +414,7 @@ function createTriggers(containerIDs, workspaceIDs, path, containerID, workspace
   console.log(tagManagerUrl);
   console.log(value);
   return gapi.client.tagmanager.accounts.containers.workspaces.triggers.create({
-    "parent": `accounts/1101713970/containers/${containerIDs}/workspaces/${workspaceIDs}`,
+    "parent": `accounts/508017233/containers/${containerIDs}/workspaces/${workspaceIDs}`,
     "resource": {
       "path": path,
       "accountId": "4702107503",
@@ -464,7 +464,7 @@ function createVariables(containerIDs, workspaceIDs, path, containerID, workspac
   console.log(tagManagerUrl);
   console.log(value);
   return gapi.client.tagmanager.accounts.containers.workspaces.variables.create({
-    "parent": `accounts/1101713970/containers/${containerIDs}/workspaces/${workspaceIDs}`,
+    "parent": `accounts/508017233/containers/${containerIDs}/workspaces/${workspaceIDs}`,
     "resource": {
       "path": path,
       "accountId": "4702107503",
@@ -504,7 +504,7 @@ function createVariables(containerIDs, workspaceIDs, path, containerID, workspac
 //  Get Container IDs of desination containers. Make sure the client is loaded and sign-in is complete before calling this method.
 function execute() {
   return gapi.client.tagmanager.accounts.containers.list({
-    "parent": "/accounts/1101713970"
+    "parent": "/accounts/508017233"
   })
       .then(function(response) {
             // Handle the results here (response.result has the parsed body).
